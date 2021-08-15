@@ -60,6 +60,7 @@ dependencies {
 
     implementation Deps.jackson_cbor
     implementation Deps.bouncy_castle
+    implementation Deps.nbp310
 
     testImplementation Deps.test_junit
     testImplementation Deps.test_junit_jupiter_api

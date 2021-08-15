@@ -24,7 +24,7 @@ package dgca.verifier.app.decoder.cbor
 
 import dgca.verifier.app.decoder.model.GreenCertificate
 import dgca.verifier.app.decoder.model.VerificationResult
-import java.time.ZonedDateTime
+import org.threeten.bp.ZonedDateTime
 
 data class GreenCertificateData(
     val issuingCountry: String?,

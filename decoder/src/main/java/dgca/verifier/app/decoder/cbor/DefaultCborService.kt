@@ -26,8 +26,8 @@ import com.upokecenter.cbor.CBORObject
 import dgca.verifier.app.decoder.cwt.CwtHeaderKeys
 import dgca.verifier.app.decoder.model.GreenCertificate
 import dgca.verifier.app.decoder.model.VerificationResult
-import java.time.Instant
-import java.time.ZoneOffset
+import org.threeten.bp.Instant
+import org.threeten.bp.ZoneOffset
 
 /**
  * Decodes input as a CBOR structure
@@ -61,7 +61,8 @@ class DefaultCborService(private val greenCertificateMapper: GreenCertificateMap
 
             val greenCertificate: GreenCertificate = greenCertificateMapper.readValue(cborObject)
                     .also { verificationResult.cborDecoded = true }
-            GreenCertificateData(issuingCountry, cborObject.ToJSONString(), greenCertificate, issuedAt.atZone(ZoneOffset.UTC), expirationTime.atZone(ZoneOffset.UTC))
+            GreenCertificateData(issuingCountry, cborObject.ToJSONString(), greenCertificate, issuedAt.atZone(
+                ZoneOffset.UTC), expirationTime.atZone(ZoneOffset.UTC))
         } catch (e: Throwable) {
             null
         }

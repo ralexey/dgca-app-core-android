@@ -23,10 +23,10 @@
 package dgca.verifier.app.decoder.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
+import org.threeten.bp.OffsetDateTime
+import org.threeten.bp.ZoneOffset
+import org.threeten.bp.format.DateTimeFormatter
 import java.io.Serializable
-import java.time.OffsetDateTime
-import java.time.ZoneOffset
-import java.time.format.DateTimeFormatter
 
 data class Test(
 
@@ -67,7 +67,8 @@ data class Test(
 
     fun isResultNegative(): Boolean = testResult == TestResult.NOT_DETECTED.value
 
-    fun isDateInThePast(): Boolean = parseToUtcTimestamp(dateTimeOfCollection).isBefore(OffsetDateTime.now())
+    fun isDateInThePast(): Boolean = parseToUtcTimestamp(dateTimeOfCollection).isBefore(
+        OffsetDateTime.now())
 
     fun getTestResultType(): TestResult {
         return when (testResult) {
@@ -83,7 +84,8 @@ data class Test(
         }
 
         return try {
-            DateTimeFormatter.ISO_OFFSET_DATE_TIME.parse(value, OffsetDateTime::from).withOffsetSameInstant(ZoneOffset.UTC)
+            DateTimeFormatter.ISO_OFFSET_DATE_TIME.parse(value, OffsetDateTime::from).withOffsetSameInstant(
+                ZoneOffset.UTC)
         } catch (ex: Exception) {
             OffsetDateTime.MAX
         }
