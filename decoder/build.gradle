@@ -76,7 +76,7 @@ afterEvaluate{
                 from components.release
                 group = 'com.github.ralexey'
                 artifactId = 'dgca-app-core-android'
-                version = '1.0.0'
+                version = '1.0.5'
             }
         }
     }
