@@ -38,6 +38,4 @@ object Deps {
     const val test_junit_jupiter_params = "org.junit.jupiter:junit-jupiter-params:${Versions.junit_jupiter}"
     const val test_runtime_only = "org.junit.jupiter:junit-jupiter-engine:${Versions.junit_jupiter}"
     const val test_hamcrest = "org.hamcrest:hamcrest:${Versions.hamcrest}"
-
-    const val maven_plugin = "com.github.dcendents:android-maven-gradle-plugin:${Versions.maven_plugin}"
 }

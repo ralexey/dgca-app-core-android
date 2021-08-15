@@ -1,11 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id 'android-maven'
+    id 'maven-publish'
 }
-
-group = 'com.github.ralexey'
-version = '1.0.0'
 
 android {
     compileSdkVersion Config.compileSdk
@@ -69,4 +66,17 @@ dependencies {
     testImplementation Deps.test_junit_jupiter_params
     testImplementation Deps.test_hamcrest
     testRuntimeOnly Deps.test_runtime_only
+}
+
+afterEvaluate{
+    publishing{
+        publications{
+            release(MavenPublication){
+                from components.release
+                group = 'com.github.ralexey'
+                artifactId = 'dgca-app-core-android'
+                version = '1.0.0'
+            }
+        }
+    }
 }
