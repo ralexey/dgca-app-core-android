@@ -43,6 +43,9 @@ android {
             output.assemble.dependsOn lintTask
         }
     }
+    packagingOptions {
+        exclude 'META-INF/ASL-2.0.txt'
+    }
 }
 
 dependencies {
